@@ -53,6 +53,11 @@ class School(models.Model):
     main_image = models.ImageField(
         'Фото школы'
     )
+    city = models.CharField(
+        'Город',
+        max_length=50,
+        blank=True
+    )
 
     def __str__(self):
         return f'{self.address}'
