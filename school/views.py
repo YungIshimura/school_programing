@@ -6,6 +6,7 @@ def view_index(request):
     courses = []
     for recomended_course in recomended_courses:
         recomended_courses_for_main_page = {
+            'id': recomended_course.id,
             'name': recomended_course.name,
             'short_description': recomended_course.short_description,
             'age_category': recomended_course.get_age_category_display(),
@@ -22,3 +23,10 @@ def view_sign_in(request):
 
 def view_registration(request):
     return render(request, 'school/registration.html')
+
+def view_course_page(request, course_id):
+    course = Course.objects.get(id=course_id)
+    context = {
+        'course': course
+    }
+    return render(request, 'school/course_page.html', context=context)
