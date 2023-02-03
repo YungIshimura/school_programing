@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Course
 
+
 def view_index(request):
     recomended_courses = Course.objects.filter(is_recomended=True)
     courses = []
@@ -17,12 +18,31 @@ def view_index(request):
     return render(request, 'school/index.html', context={'courses': courses})
 
 
+def view_courses(request):
+    all_courses = Course.objects.all()
+    courses = []
+    for course in all_courses:
+        recomended_courses_for_main_page = {
+            'id': course.id,
+            'name': course.name,
+            'short_description': course.short_description,
+            'age_category': course.get_age_category_display(),
+            'image': course.main_image.url
+        }
+        courses.append(recomended_courses_for_main_page)
+    context = {
+        'courses': courses
+    }
+    return render(request, 'school/courses.html', context=context)
+
+
 def view_sign_in(request):
     return render(request, 'school/sign-in.html')
 
 
 def view_registration(request):
     return render(request, 'school/registration.html')
+
 
 def view_course_page(request, course_id):
     course = Course.objects.get(id=course_id)

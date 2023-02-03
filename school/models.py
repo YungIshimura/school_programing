@@ -17,7 +17,7 @@ class Course(models.Model):
     )
     short_description = models.CharField(
         'Краткое описание курса',
-        max_length=300
+        max_length=100
     )
     age_category = models.CharField(
         'Возрастная категория',
