@@ -3,22 +3,23 @@
 {% load static %}
 
 <html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 {% block head %}
 {% endblock %}
+</head>
 <body>
     <main>
-    <div class="container" style='margin-right:750px'>
+    <div class="container" style='margin-right:750px;'>
         <header class="d-flex flex-wrap justify-content-space-between py-3 mb-4 border-bottom" style='width:100%; padding:50px; position:fixed; display:flex; z-index:100; background-color: var(--bs-body-bg);'>
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
                 <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
             </svg> Go To Code
             </a>
-    
-            <ul class="nav nav-pills" style='margin-right: 200px;'>
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Главная</a></li>
+            <ul class="nav nav-pills" style='margin-right: 280px;'>
+            <li class="nav-item"><a href="{% url 'school:index' %}" class="nav-link" aria-current="page">Главная</a></li>
             <li class="nav-item"><a href="{% url 'school:courses' %}" class="nav-link">Курсы</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">О нас</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Блог</a></li>
             </ul>
             <div class="col-md-3 text-end" style='margin-left:50px'>
